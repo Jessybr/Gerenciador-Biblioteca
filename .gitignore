@@ -24,3 +24,13 @@ hs_err_pid*
 replay_pid*
 
 .env
+
+# Maven
+target/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
