@@ -3,9 +3,11 @@ package com.Jessybr.Gerenciador_Biblioteca.service;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.Jessybr.Gerenciador_Biblioteca.repository.UserRepository;
 
+@Service
 public class CustomUserDetailsService implements UserDetailsService{
     private final UserRepository repository;
 
