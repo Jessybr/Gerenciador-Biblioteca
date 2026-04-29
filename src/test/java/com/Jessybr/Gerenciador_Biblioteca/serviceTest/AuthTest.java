@@ -25,7 +25,7 @@ import com.Jessybr.Gerenciador_Biblioteca.factory.UserRequestFactory;
 import com.Jessybr.Gerenciador_Biblioteca.factory.UserResponseFactory;
 import com.Jessybr.Gerenciador_Biblioteca.mapper.AuthMapper;
 import com.Jessybr.Gerenciador_Biblioteca.repository.UserRepository;
-import com.Jessybr.Gerenciador_Biblioteca.service.AuthService;
+import com.Jessybr.Gerenciador_Biblioteca.service.UserService;
 
 @ExtendWith(MockitoExtension.class)
 public class AuthTest {
@@ -39,7 +39,7 @@ public class AuthTest {
     private PasswordEncoder passwordEncoder;
 
     @InjectMocks
-    private AuthService authService;
+    private UserService userService;
 
     @Test
     void shouldCreateNewUserWithCripytoPassword_AndReturnUser() {
@@ -52,7 +52,7 @@ public class AuthTest {
         when(userRepository.save(any(Usuario.class))).thenReturn(usuarioNovo);
         when(mapper.toResponse(any(Usuario.class))).thenReturn(responseUsuarioNovo);
 
-        RegisterResponse result = authService.register(requestUsuarioNovo);
+        RegisterResponse result = userService.register(requestUsuarioNovo);
 
         assertNotEquals(requestUsuarioNovo.password(), usuarioNovo.getPassword());
         assertEquals(result.createdAt(), LocalDate.now());
