@@ -1,20 +1,14 @@
 package com.Jessybr.Gerenciador_Biblioteca.mapper;
 
+import org.mapstruct.Mapper;
+
 import com.Jessybr.Gerenciador_Biblioteca.domain.model.Usuario;
 import com.Jessybr.Gerenciador_Biblioteca.dto.request.RegisterRequest;
 import com.Jessybr.Gerenciador_Biblioteca.dto.response.RegisterResponse;
 
-public class AuthMapper {
-    public Usuario toEntity(RegisterRequest request) {
-        Usuario usuario = new Usuario();
-        usuario.setUsername(request.username());
-        usuario.setPassword(request.password());
+@Mapper(componentModel = "spring")
+public interface AuthMapper {
+    Usuario toEntity(RegisterRequest request);
 
-        return usuario;
-    }
-
-    public RegisterResponse toResponse(Usuario usuario) {
-        RegisterResponse response = new RegisterResponse(usuario.getUsername(), usuario.getCreatedAt(), usuario.getUpdatedAt(), usuario.isAccountNonExpired());
-        return response;
-    }
+    RegisterResponse toResponse(Usuario usuario);
 }
