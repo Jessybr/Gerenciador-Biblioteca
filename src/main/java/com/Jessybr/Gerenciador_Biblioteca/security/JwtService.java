@@ -1,19 +1,19 @@
-package com.Jessybr.Gerenciador_Biblioteca.service;
+package com.Jessybr.Gerenciador_Biblioteca.security;
 
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-@Component
+@Service
 public class JwtService {
-    @Value("${jwt.secret}")
+    @Value("${jwt.secret:default-secret-para-testes-nao-usar-em-prod}")
     private String SECRET_KEY;
 
     public String gerarToken(UserDetails userDetails) {
