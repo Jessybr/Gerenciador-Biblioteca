@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.Jessybr.Gerenciador_Biblioteca.service.JwtService;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -44,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
         } catch (Exception e) {
-
+            SecurityContextHolder.clearContext();
         }
 
         filterChain.doFilter(request, response);
