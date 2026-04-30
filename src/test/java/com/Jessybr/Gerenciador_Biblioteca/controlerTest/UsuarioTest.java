@@ -29,4 +29,19 @@ public class UsuarioTest {
     @MockitoBean
     private UsuarioService usuarioService;
 
+    @Test
+    void shouldCreateNewUser_AndReturnStatus200() {
+        RegisterRequest request = UserRequestFactory.createRegisterRequest();
+        RegisterResponse response = UserResponseFactory.createRegisterResponse();
+
+        when(usuarioService.register(request)).thenReturn(response);
+
+        mockMvc.perform(get("/user/1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.username").value("novo_usuario"))
+            .andExpect(jsonPath("$.createAt").exists())
+            .andExpect(jsonPath("$.updatedAt").exists())
+            .andExpect(jsonPath("$.accountNonExpired").value(true));
+    }
+
 }
