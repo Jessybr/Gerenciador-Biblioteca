@@ -14,12 +14,12 @@ import com.Jessybr.Gerenciador_Biblioteca.mapper.AuthMapper;
 import com.Jessybr.Gerenciador_Biblioteca.repository.UserRepository;
 
 @Service
-public class UserService {
+public class UsuarioService {
     private final UserRepository userRepository;
     private final AuthMapper mapper;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, AuthMapper mapper, PasswordEncoder passwordEncoder) {
+    public UsuarioService(UserRepository userRepository, AuthMapper mapper, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.passwordEncoder = passwordEncoder;
