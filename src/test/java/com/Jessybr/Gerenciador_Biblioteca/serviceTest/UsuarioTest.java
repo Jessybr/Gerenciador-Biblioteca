@@ -25,10 +25,10 @@ import com.Jessybr.Gerenciador_Biblioteca.factory.UserRequestFactory;
 import com.Jessybr.Gerenciador_Biblioteca.factory.UserResponseFactory;
 import com.Jessybr.Gerenciador_Biblioteca.mapper.AuthMapper;
 import com.Jessybr.Gerenciador_Biblioteca.repository.UserRepository;
-import com.Jessybr.Gerenciador_Biblioteca.service.UserService;
+import com.Jessybr.Gerenciador_Biblioteca.service.UsuarioService;
 
 @ExtendWith(MockitoExtension.class)
-public class AuthTest {
+public class UsuarioTest {
     @Mock
     private UserRepository userRepository;
 
@@ -39,7 +39,7 @@ public class AuthTest {
     private PasswordEncoder passwordEncoder;
 
     @InjectMocks
-    private UserService userService;
+    private UsuarioService userService;
 
     @Test
     void shouldCreateNewUserWithCripytoPassword_AndReturnUser() {
